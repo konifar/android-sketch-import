@@ -82,4 +82,4 @@ for file in *.sketch ; do
 done
 
 generateMetaIndex
-exportImages ../../sketch/images.sketch
+exportImages images.sketch

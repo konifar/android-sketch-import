@@ -46,9 +46,13 @@ github_token="$3"
 base_branch='master'
 branch_name="sketch_images_import"
 
+cd scripts/sketchimport
+
 rm -rf images.zip images
 
-bundle install
+ls -l
+
+bundle install --path vendor/bundler
 bundle exec ruby fetch_sketch_images.rb ${circle_ci_token} ${build_no}
 
 unzip images.zip -d images

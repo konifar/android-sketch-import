@@ -8,8 +8,8 @@ test:
   override:
     - scripts/sketchimport/generate_png.sh "$CIRCLE_ARTIFACTS"
 
-#deployment:
-#  master:
-#    branch: master
-#    commands:
-#      - script/import-from_sketch.sh ${CIRCLECI_TOKEN} ${CIRCLE_BUILD_NO} ${GITHUB_TOKEN}
+deployment:
+  master:
+    branch: master
+    commands:
+      - scripts/sketchimport/import_from_sketch.sh ${CIRCLECI_TOKEN} ${CIRCLE_BUILD_NUM} $GITHUB_TOKEN
