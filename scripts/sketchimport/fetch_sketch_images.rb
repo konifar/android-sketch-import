@@ -50,4 +50,4 @@ end
 circle_ci_token = ARGV[0]
 build_no = ARGV[1]
 
-Fetchimages.new(circle_ci_token).fetch(build_no)
+FetchSketchImages.new(circle_ci_token).fetch(build_no)
