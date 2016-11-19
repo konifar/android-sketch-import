@@ -47,9 +47,9 @@ generateMetaIndex() {
     cd "$destDir"
 
     cat > index.html <<EOF
-<html><head><title>Aya:$CIRCLE_SHA1</title></head>
+<html><head><title>Artboards of $CIRCLE_SHA1</title></head>
 <body><h1>Artboards of $CIRCLE_SHA1</h1>
-<a href="https://github.com/quipper/aya-mobile-design/commit/$CIRCLE_SHA1">change</a></p>
+<a href="https://github.com/konifar/android-sketch-import/commit/$CIRCLE_SHA1">change</a></p>
 <ul>
 EOF
 
@@ -65,15 +65,15 @@ EOF
     cd -
 }
 
-exportIcons() {
+exportImages() {
     src="$1"
-    mkdir -p "$destDir/icons"
-    ${sketchtool} export slices "$src" --output="$destDir/icons"
-    ${sketchtool} export slices "$src" --formats=svg --output="$destDir/icons"
-    ${vdtool} -c -in "$destDir/icons"
+    mkdir -p "$destDir/images"
+    ${sketchtool} export slices "$src" --output="$destDir/images"
+    ${sketchtool} export slices "$src" --formats=svg --output="$destDir/images"
+    ${vdtool} -c -in "$destDir/images"
 
-    (cd "$destDir/icons"; zip ../icons.zip *)
-    rm -r "$destDir/icons"
+    (cd "$destDir/images"; zip ../images.zip *)
+    rm -r "$destDir/images"
 }
 
 for file in *.sketch ; do
@@ -82,4 +82,4 @@ for file in *.sketch ; do
 done
 
 generateMetaIndex
-exportIcons sketch/images.sketch
+exportImages ../../sketch/images.sketch

@@ -2,11 +2,11 @@ dependencies:
   cache_directories:
     - sketchtool
   override:
-    - script/install-sketchtool.sh
+    - scripts/sketchimport/install-sketchtool.sh
 
 test:
   override:
-    - script/generate-png.sh "$CIRCLE_ARTIFACTS"
+    - scripts/sketchimport/generate-png.sh "$CIRCLE_ARTIFACTS"
 
 deployment:
   master:

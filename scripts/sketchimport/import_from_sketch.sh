@@ -3,7 +3,7 @@
 # Usage: sketch_import.sh ${circle_ci_token} ${BUILD_NO} ${GITHUB_TOKEN}
 
 dest_dir='../../app/src/main/res'
-github_api_pulls_endpoint='https://api.github.com/repos/quipper/qlearn-android/pulls'
+github_api_pulls_endpoint='https://api.github.com/repos/konifar/android-sketch-import/pulls'
 
 distributeFile() {
     local src_dir="$1"
